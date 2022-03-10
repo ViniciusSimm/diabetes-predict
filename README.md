@@ -20,3 +20,5 @@ And the output (Y) was described as:
 "A quantitative measure of disease progression one year after baseline"
 
 After checking the unique values for each variable, "sex" was the only qualitative. Therefore, it was the only variable not considered for the next data evaluation.
+
+After analysing each graphic, all of them seem to be close to a normal graph, except "s4_tch", that shows an unusual shape.

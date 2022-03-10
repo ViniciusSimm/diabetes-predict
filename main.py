@@ -34,3 +34,20 @@ axes[2].set_title("bp")
 sns.histplot(full_database, x="bp", ax=axes[2])
 
 plt.show()
+
+fig, axes = plt.subplots(2, 3)
+
+axes[0,0].set_title("s1_tc")
+sns.histplot(full_database, x="s1_tc",ax=axes[0,0])
+axes[0,1].set_title("s2_ldl")
+sns.histplot(full_database, x="s2_ldl", ax=axes[0,1])
+axes[0,2].set_title("s3_hdl")
+sns.histplot(full_database, x="s3_hdl", ax=axes[0,2])
+axes[1,0].set_title("s4_tch")
+sns.histplot(full_database, x="s4_tch",ax=axes[1,0])
+axes[1,1].set_title("s5_ltg")
+sns.histplot(full_database, x="s5_ltg", ax=axes[1,1])
+axes[1,2].set_title("s6_glu")
+sns.histplot(full_database, x="s6_glu", ax=axes[1,2])
+
+plt.show()
