@@ -1,1 +1,22 @@
 # diabetes-predict
+
+For this project, we used the diabetes dataset from sklearn.
+The data was already mean centered and scaled, but the first thing to be done was to understand the meaning of every column and the data description.
+
+All the information was given on scikit learn webpage:
+
+age
+sex
+bmi (body mass index)
+bp (average blood pressure)
+s1_tc (total serum cholesterol)
+s2_ldl (low-density lipoproteins)
+s3_hdl (high-density lipoproteins)
+s4_tch (total cholesterol / HDL)
+s5_ltg (possibly log of serum triglycerides level)
+s6_glu (blood sugar level)
+
+And the output (Y) was described as:
+"A quantitative measure of disease progression one year after baseline"
+
+After checking the unique values for each variable, "sex" was the only qualitative. Therefore, it was the only variable not considered for the next data evaluation.
