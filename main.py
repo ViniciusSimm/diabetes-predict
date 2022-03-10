@@ -23,5 +23,14 @@ print("Once all the other variables were quantitatives:")
 
 print(full_database.drop('sex',axis=1).describe())
 
-sns.displot(full_database, x="age")
+
+fig, axes = plt.subplots(1, 3)
+
+axes[0].set_title("Age")
+sns.histplot(full_database, x="age",ax=axes[0])
+axes[1].set_title("bmi")
+sns.histplot(full_database, x="bmi", ax=axes[1])
+axes[2].set_title("bp")
+sns.histplot(full_database, x="bp", ax=axes[2])
+
 plt.show()
