@@ -63,3 +63,10 @@ print("Correlation between variables (pearson method):\n")
 corr_var = full_database.corr(method ='pearson')
 
 print(corr_var)
+
+print("-"*100)
+
+print("Correlation heatmap")
+
+sns.heatmap(corr_var)
+plt.show()
