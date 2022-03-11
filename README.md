@@ -22,3 +22,6 @@ And the output (Y) was described as:
 After checking the unique values for each variable, "sex" was the only qualitative. Therefore, it was the only variable not considered for the next data evaluation.
 
 After analysing each graphic, all of them seem to be close to a normal graph, except "s4_tch", that shows an unusual shape.
+
+Analysing the correlation between every variable using pandas' method corr(), it's possible to see a very strong relation between s1_tc and s2_ldl, and inverse strong relation between s3_hdl and s4_tch and somehow strong between s2_ldl and s4_tch.
+

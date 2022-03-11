@@ -8,6 +8,10 @@ X, Y = datasets.load_diabetes(return_X_y=True)
 full_database = pd.DataFrame(X,columns=['age','sex','bmi','bp','s1_tc','s2_ldl','s3_hdl','s4_tch','s5_ltg','s6_glu'])
 full_database['disease_progression'] = Y
 
+print("EXPLORATORY DATA ANALYSIS\n")
+
+print("-"*100)
+
 print(full_database)
 
 print("-"*100)
@@ -19,7 +23,7 @@ print("Unique values of sex:", len(full_database.sex.unique()))
 
 print("-"*100)
 
-print("Once all the other variables were quantitatives:")
+print("Once all the other variables were quantitatives:\n")
 
 print(full_database.drop('sex',axis=1).describe())
 
@@ -51,3 +55,11 @@ axes[1,2].set_title("s6_glu")
 sns.histplot(full_database, x="s6_glu", ax=axes[1,2])
 
 plt.show()
+
+print("-"*100)
+
+print("Correlation between variables (pearson method):\n")
+
+corr_var = full_database.corr(method ='pearson')
+
+print(corr_var)
