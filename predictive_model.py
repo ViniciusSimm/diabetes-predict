@@ -1,13 +1,18 @@
-from matplotlib.pyplot import axis
+import numpy as np
 from sklearn import datasets
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+from sklearn import metrics
 
 def score_model(model,X_test,Y_test):
-    R_2 = model.score(X_test,Y_test)
-    print("R_2:",R_2)
-    return R_2
+    Y_predict = model.predict(X_test)
+    R2_score = metrics.r2_score(Y_test,Y_predict)
+    print("R2_score:",R2_score)
+    MSE = metrics.mean_squared_error(Y_test,Y_predict)
+    MSE_sqrt = np.sqrt(MSE)
+    print("MSE:",MSE_sqrt)
+    return R2_score
 
 def train_model(model,X_train,Y_train):
     model.fit(X_train,Y_train)
@@ -40,3 +45,4 @@ print("\nLinear Regression without s2 and s4:")
 model_LR_2 = LinearRegression()
 model_LR_2 = train_model(model_LR_2,X_train.drop(['s2_ldl','s4_tch'],axis=1),Y_train)
 score_LR_2 = score_model(model_LR_2,X_test.drop(['s2_ldl','s4_tch'],axis=1),Y_test)
+
