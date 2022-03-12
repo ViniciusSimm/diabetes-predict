@@ -1,7 +1,42 @@
+from matplotlib.pyplot import axis
 from sklearn import datasets
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+def score_model(model,X_test,Y_test):
+    R_2 = model.score(X_test,Y_test)
+    print("R_2:",R_2)
+    return R_2
+
+def train_model(model,X_train,Y_train):
+    model.fit(X_train,Y_train)
+    return model
+
 
 X, Y = datasets.load_diabetes(return_X_y=True)
 full_database = pd.DataFrame(X,columns=['age','sex','bmi','bp','s1_tc','s2_ldl','s3_hdl','s4_tch','s5_ltg','s6_glu'])
 full_database['disease_progression'] = Y
 
+x = full_database.drop('disease_progression',axis=1)
+y = full_database['disease_progression']
+
+X_train,X_test,Y_train,Y_test = train_test_split(x,y,test_size=0.3,random_state=100)
+
+print("Train size:", X_train.shape[0])
+print("Test size:", X_test.shape[0])
+print("Total:", X.shape[0])
+
+print("-"*100)
+
+print("\nLinear Regression:")
+
+model_LR = LinearRegression()
+model_LR = train_model(model_LR,X_train,Y_train)
+score_LR = score_model(model_LR,X_test,Y_test)
+
+print("\nLinear Regression without s2 and s4:")
+
+model_LR_2 = LinearRegression()
+model_LR_2 = train_model(model_LR_2,X_train.drop(['s2_ldl','s4_tch'],axis=1),Y_train)
+score_LR_2 = score_model(model_LR_2,X_test.drop(['s2_ldl','s4_tch'],axis=1),Y_test)

@@ -1,5 +1,7 @@
 # diabetes-predict
 
+----DATA EXPLORER----
+
 For this project, we used the diabetes dataset from sklearn.
 The data was already mean centered and scaled, but the first thing to be done was to understand the meaning of every column and the data description.
 
@@ -30,3 +32,7 @@ Usually, when two variables are strongly correlated, one of them is excluded to 
 We also did some exploring with scipy normaltest. Adopting an alpha of 0.05, we tested all the variables to see if they came from a normal distribution. The results indicate that only s6_glu actually came from a normal distribution (accepting the Null Hyphotesis). All the other variables, although it seemed like normal distributions, they were not.
 
 So, after the data exploring, we were ready to start modeling.
+
+----MODELING----
+
+The first model was Linear Regression.
