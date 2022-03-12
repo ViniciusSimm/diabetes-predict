@@ -7,6 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 import statsmodels.api as sm
 from sklearn.svm import SVC, SVR
+from sklearn.dummy import DummyRegressor
 
 def score_model(model,X_test,Y_test):
     Y_predict = model.predict(X_test)
@@ -72,3 +73,12 @@ print("\nSVR model:")
 model_SVR = SVR()
 model_SVR = train_model(model_SVR,X_train,Y_train)
 score_SVR = score_model(model_SVR,X_test,Y_test)
+
+print("-"*100)
+
+print("\nDummyRegressor:")
+
+dummy = DummyRegressor(strategy="mean")
+dummy = train_model(dummy,X_train,Y_train)
+dummy_score = score_model(dummy,X_test,Y_test)
+

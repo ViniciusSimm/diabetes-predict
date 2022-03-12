@@ -52,3 +52,6 @@ But when trying to remove some columns, as tried before, to improve the score, w
 A SVR model was also tested but the result was underperformed.
 
 Therefore, the best model so far was a non-linear using all the columns from the dataset.
+
+Now, we had a somehow good result, so we were able to use DummyRegressor, from Scikit, to evaluate how good our model was so far. Surprisingly, the Dummy had a better outcome than anyother model tested so far, but was quite close to our best model. It worth noticing that R2_score had a negative outcome for the DummyRegressor.
+
