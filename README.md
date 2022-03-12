@@ -40,20 +40,19 @@ The first model was Linear Regression.
 The data was subdivided in train and test and the Linear Regression model was trained and evaluated. The first way to measure the score was by using R_2 (coefficient of determination). But one of the downsides of this score model is that R_2 does not decrease by the increase of distinct variables.
 A second way to compare models is the mean squared error (MSE). This parameter is affected by the number of variables in the model.
 
-Worth saying that Linear Regression is one of the most simple and easy correlations to be done.
+Our goal is to INCREASE R_2 and DECREASE MSE.
 
-The results seen were not good enought, so we tried other predictive models.
+Worth saying that Linear Regression is one of the most simple and easy correlations to be done, where we try to find a straight line that summarize the data.
+The results were not great, so we tried other models.
 
-We tried a non-linear alternative to predict the results. Scikit provides us with an alternative using Support Vector Machines: SVC.
+The OLS regression had a better R_2 then the linear model used before.
 
-As we can see by the results, the non-linear model had a significant advantage on both R2_score and MSE.
-But when trying to remove some columns, as tried before, to improve the score, we had the inverse effect.
+We tried a non-linear model to predict the results. Scikit provides us with an alternative using Support Vector Machines: SVC.
 
-A SVR model was also tested but the result was underperformed.
+As we can see by the results, the non-linear model had a significant disadvantage on both R2_score and MSE. A SVR model was also tested but the result was equally underperformed.
 
-Therefore, the best model so far was a non-linear using all the columns from the dataset.
+Now we were able to use DummyRegressor, from Scikit, to evaluate how good our model was so far. It's results where worst than every other model tested before, what means our model is somehow good and applicable.
 
-Now, we had a somehow good result, so we were able to use DummyRegressor, from Scikit, to evaluate how good our model was so far. Surprisingly, the Dummy had a better outcome than anyother model tested so far, but was quite close to our best model. It worth noticing that R2_score had a negative outcome for the DummyRegressor.
+But we had to keep trying new models and, after finding one that pleased us enought, start working with parameters to improve it even more.
 
-So, we had to keep trying new models and, after finding one that pleased us enought, start working with parameters to improve it even more.
-
+The next model was Decision Tree Regressor, but it's performance was even worse than the Dummy.

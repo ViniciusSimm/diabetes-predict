@@ -17,7 +17,7 @@ def score_model(model,X_test,Y_test):
     MSE = metrics.mean_squared_error(Y_test,Y_predict)
     MSE_sqrt = np.sqrt(MSE)
     print("MSE:",MSE_sqrt)
-    return R2_score
+    return R2_score, MSE_sqrt
 
 def train_model(model,X_train,Y_train):
     model.fit(X_train,Y_train)
@@ -43,13 +43,13 @@ print("\nLinear Regression:")
 
 model_LR = LinearRegression()
 model_LR = train_model(model_LR,X_train,Y_train)
-score_LR = score_model(model_LR,X_test,Y_test)
+R2_LR,MSE_LR = score_model(model_LR,X_test,Y_test)
 
 print("\nLinear Regression without s2 and s4:")
 
 model_LR_2 = LinearRegression()
 model_LR_2 = train_model(model_LR_2,X_train.drop(['s2_ldl','s4_tch'],axis=1),Y_train)
-score_LR_2 = score_model(model_LR_2,X_test.drop(['s2_ldl','s4_tch'],axis=1),Y_test)
+R2_LR_2,MSE_LR_2 = score_model(model_LR_2,X_test.drop(['s2_ldl','s4_tch'],axis=1),Y_test)
 
 print("\nOrdinary Least Squares (statsmodels):")
 
@@ -61,27 +61,27 @@ print("\nSVC model:")
 
 model_SVC = SVC()
 model_SVC = train_model(model_SVC,X_train,Y_train)
-score_SVC = score_model(model_SVC,X_test,Y_test)
+R2_SVC,MSE_SVC = score_model(model_SVC,X_test,Y_test)
 
 print("\nSVC model without s2 and s4:")
 
 model_SVC_2 = SVC()
 model_SVC_2 = train_model(model_SVC_2,X_train.drop(['s2_ldl','s4_tch'],axis=1),Y_train)
-score_SVC_2 = score_model(model_SVC_2,X_test.drop(['s2_ldl','s4_tch'],axis=1),Y_test)
+R2_SVC_2,MSE_SVC_2 = score_model(model_SVC_2,X_test.drop(['s2_ldl','s4_tch'],axis=1),Y_test)
 
 print("\nSVR model:")
 
 model_SVR = SVR()
 model_SVR = train_model(model_SVR,X_train,Y_train)
-score_SVR = score_model(model_SVR,X_test,Y_test)
+R2_SVR,MSE_SVR = score_model(model_SVR,X_test,Y_test)
 
 print("-"*100)
 
 print("\nDummyRegressor:")
 
-dummy = DummyRegressor(strategy="mean")
+dummy = DummyRegressor(strategy="median")
 dummy = train_model(dummy,X_train,Y_train)
-dummy_score = score_model(dummy,X_test,Y_test)
+R2_dummy,MSE_dummy = score_model(dummy,X_test,Y_test)
 
 print("-"*100)
 
@@ -89,4 +89,4 @@ print("\nDecision Tree Regressor:")
 
 model_tree = DecisionTreeRegressor(random_state=100)
 model_tree = train_model(model_tree,X_train,Y_train)
-score_tree = score_model(model_tree,X_test,Y_test)
+R2_tree,MSE_tree = score_model(model_tree,X_test,Y_test)
