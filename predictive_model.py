@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 import statsmodels.api as sm
-from sklearn.svm import SVC
+from sklearn.svm import SVC, SVR
 
 def score_model(model,X_test,Y_test):
     Y_predict = model.predict(X_test)
@@ -59,4 +59,16 @@ print("\nSVC model:")
 
 model_SVC = SVC()
 model_SVC = train_model(model_SVC,X_train,Y_train)
-score_LR = score_model(model_SVC,X_test,Y_test)
+score_SVC = score_model(model_SVC,X_test,Y_test)
+
+print("\nSVC model without s2 and s4:")
+
+model_SVC_2 = SVC()
+model_SVC_2 = train_model(model_SVC_2,X_train.drop(['s2_ldl','s4_tch'],axis=1),Y_train)
+score_SVC_2 = score_model(model_SVC_2,X_test.drop(['s2_ldl','s4_tch'],axis=1),Y_test)
+
+print("\nSVR model:")
+
+model_SVR = SVR()
+model_SVR = train_model(model_SVR,X_train,Y_train)
+score_SVR = score_model(model_SVR,X_test,Y_test)
