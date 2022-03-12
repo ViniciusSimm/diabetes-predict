@@ -1,8 +1,10 @@
+from tkinter.tix import Y_REGION
 import sklearn
 import pandas as pd
 from sklearn import datasets
 import seaborn as sns
 from matplotlib import pyplot as plt
+from scipy.stats import normaltest
 
 X, Y = datasets.load_diabetes(return_X_y=True)
 full_database = pd.DataFrame(X,columns=['age','sex','bmi','bp','s1_tc','s2_ldl','s3_hdl','s4_tch','s5_ltg','s6_glu'])
@@ -55,6 +57,18 @@ axes[1,2].set_title("s6_glu")
 sns.histplot(full_database, x="s6_glu", ax=axes[1,2])
 
 plt.show()
+
+print("-"*100)
+
+alpha = 0.05
+print("Normaltest (using an alpha of {}):".format(alpha))
+for column in full_database:
+    _,p_value = normaltest(full_database[column])
+    H0 = p_value <= alpha
+    if H0:
+        print(column, "is not normal - P-value:",p_value)
+    else:
+        print(column, "is normal - P-value:",p_value)
 
 print("-"*100)
 
