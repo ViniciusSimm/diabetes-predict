@@ -44,3 +44,6 @@ Worth saying that Linear Regression is one of the most simple and easy correlati
 
 The results seen were not good enought, so we tried other predictive models.
 
+We tried a non-linear alternative to predict the results. Scikit provides us with an alternative using Support Vector Machines: SVC.
+
+As we can see by the results, the non-linear model had a significant advantage on both R2_score and MSE. 

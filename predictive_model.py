@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 import statsmodels.api as sm
+from sklearn.svm import SVC
 
 def score_model(model,X_test,Y_test):
     Y_predict = model.predict(X_test)
@@ -54,3 +55,8 @@ X_train_plus_constant = sm.add_constant(X_train)
 model_OLS = sm.OLS(Y_train,X_train_plus_constant,hasconst=True).fit()
 print(model_OLS.summary())
 
+print("\nSVC model:")
+
+model_SVC = SVC()
+model_SVC = train_model(model_SVC,X_train,Y_train)
+score_LR = score_model(model_SVC,X_test,Y_test)
