@@ -45,11 +45,12 @@ model_LR = LinearRegression()
 model_LR = train_model(model_LR,X_train,Y_train)
 R2_LR,MSE_LR = score_model(model_LR,X_test,Y_test)
 
-print("\nLinear Regression without s2 and s4:")
+print("\nLinear Regression without s1 and s4:")
 
 model_LR_2 = LinearRegression()
-model_LR_2 = train_model(model_LR_2,X_train.drop(['s2_ldl','s4_tch'],axis=1),Y_train)
-R2_LR_2,MSE_LR_2 = score_model(model_LR_2,X_test.drop(['s2_ldl','s4_tch'],axis=1),Y_test)
+model_LR_2 = train_model(model_LR_2,X_train.drop(['s1_tc','s4_tch'],axis=1),Y_train)
+R2_LR_2,MSE_LR_2 = score_model(model_LR_2,X_test.drop(['s1_tc','s4_tch'],axis=1),Y_test)
+
 
 print("\nOrdinary Least Squares (statsmodels):")
 
@@ -63,11 +64,11 @@ model_SVC = SVC()
 model_SVC = train_model(model_SVC,X_train,Y_train)
 R2_SVC,MSE_SVC = score_model(model_SVC,X_test,Y_test)
 
-print("\nSVC model without s2 and s4:")
+print("\nSVC model without s1 and s4:")
 
 model_SVC_2 = SVC()
-model_SVC_2 = train_model(model_SVC_2,X_train.drop(['s2_ldl','s4_tch'],axis=1),Y_train)
-R2_SVC_2,MSE_SVC_2 = score_model(model_SVC_2,X_test.drop(['s2_ldl','s4_tch'],axis=1),Y_test)
+model_SVC_2 = train_model(model_SVC_2,X_train.drop(['s1_tc','s4_tch'],axis=1),Y_train)
+R2_SVC_2,MSE_SVC_2 = score_model(model_SVC_2,X_test.drop(['s1_tc','s4_tch'],axis=1),Y_test)
 
 print("\nSVR model:")
 
