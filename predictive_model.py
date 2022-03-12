@@ -5,6 +5,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
+from sklearn.tree import DecisionTreeRegressor
 import statsmodels.api as sm
 from sklearn.svm import SVC, SVR
 from sklearn.dummy import DummyRegressor
@@ -82,3 +83,10 @@ dummy = DummyRegressor(strategy="mean")
 dummy = train_model(dummy,X_train,Y_train)
 dummy_score = score_model(dummy,X_test,Y_test)
 
+print("-"*100)
+
+print("\nDecision Tree Regressor:")
+
+model_tree = DecisionTreeRegressor(random_state=100)
+model_tree = train_model(model_tree,X_train,Y_train)
+score_tree = score_model(model_tree,X_test,Y_test)

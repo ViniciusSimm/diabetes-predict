@@ -55,3 +55,5 @@ Therefore, the best model so far was a non-linear using all the columns from the
 
 Now, we had a somehow good result, so we were able to use DummyRegressor, from Scikit, to evaluate how good our model was so far. Surprisingly, the Dummy had a better outcome than anyother model tested so far, but was quite close to our best model. It worth noticing that R2_score had a negative outcome for the DummyRegressor.
 
+So, we had to keep trying new models and, after finding one that pleased us enought, start working with parameters to improve it even more.
+
