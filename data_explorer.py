@@ -84,3 +84,5 @@ print("Correlation heatmap")
 
 sns.heatmap(corr_var)
 plt.show()
+
+print("DOE - Correlation between variables")

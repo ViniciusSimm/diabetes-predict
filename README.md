@@ -40,4 +40,7 @@ The first model was Linear Regression.
 The data was subdivided in train and test and the Linear Regression model was trained and evaluated. The first way to measure the score was by using R_2 (coefficient of determination). But one of the downsides of this score model is that R_2 does not decrease by the increase of distinct variables.
 A second way to compare models is the mean squared error (MSE). This parameter is affected by the number of variables in the model.
 
+Worth saying that Linear Regression is one of the most simple and easy correlations to be done.
+
 The results seen were not good enought, so we tried other predictive models.
+

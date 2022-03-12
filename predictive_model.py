@@ -1,9 +1,11 @@
+from opcode import hasconst
 import numpy as np
 from sklearn import datasets
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
+import statsmodels.api as sm
 
 def score_model(model,X_test,Y_test):
     Y_predict = model.predict(X_test)
@@ -45,4 +47,10 @@ print("\nLinear Regression without s2 and s4:")
 model_LR_2 = LinearRegression()
 model_LR_2 = train_model(model_LR_2,X_train.drop(['s2_ldl','s4_tch'],axis=1),Y_train)
 score_LR_2 = score_model(model_LR_2,X_test.drop(['s2_ldl','s4_tch'],axis=1),Y_test)
+
+print("\nOrdinary Least Squares (statsmodels):")
+
+X_train_plus_constant = sm.add_constant(X_train)
+model_OLS = sm.OLS(Y_train,X_train_plus_constant,hasconst=True).fit()
+print(model_OLS.summary())
 
