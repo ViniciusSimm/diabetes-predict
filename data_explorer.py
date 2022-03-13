@@ -1,4 +1,3 @@
-from tkinter.tix import Y_REGION
 import sklearn
 import pandas as pd
 from sklearn import datasets
