@@ -69,7 +69,7 @@ The Random Forest Regressor had a better outcome than the Decision Tree Regresso
 With six distinct models, we chose the top three to improve by changing its hyperparameters.
 The models were: Linear Regression, OLS and Random Forest Regressor.
 
-For the Linear Regression we have used RFE (that eliminates some variables up to a determined number). By iteration, we have discovered that n_features_to_select=7 had the best outcome, measured by R2 and MSE.
+For the Linear Regression we have used RFE (that eliminates some variables up to a determined number).
 
 Although the OLS model had a slightly better outcome than the Linear Regression one, both models didn't have many hyperparameters to be tested.
 
@@ -80,3 +80,5 @@ We had to decrease significantly the amount of records used to test the model, t
 Problably the results would be even better if we had a larger dataset to work with.
 
 A final table was created to compare the results between all selected models.
+
+We will use Linear Regression to formulate our final model, because the results were better than the other models and it's easier to work with than OLS.
