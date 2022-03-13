@@ -1,6 +1,8 @@
 # diabetes-predict
 
+
 ----DATA EXPLORER----
+
 
 For this project, we used the diabetes dataset from sklearn.
 The data was already mean centered and scaled, but the first thing to be done was to understand the meaning of every column and the data description.
@@ -33,7 +35,9 @@ We also did some exploring with scipy normaltest. Adopting an alpha of 0.05, we 
 
 So, after the data exploring, we were ready to start modeling.
 
+
 ----MODELING----
+
 
 The first model was Linear Regression.
 
@@ -57,3 +61,22 @@ But we had to keep trying new models and, after finding one that pleased us enou
 
 The next model was Decision Tree Regressor, but it's performance was even worse than the Dummy.
 The Random Forest Regressor had a better outcome than the Decision Tree Regressor once it tested many trees and chose the one with the best outcome.
+
+
+----IMPROVING BEST MODELS----
+
+
+With six distinct models, we chose the top three to improve by changing its hyperparameters.
+The models were: Linear Regression, OLS and Random Forest Regressor.
+
+For the Linear Regression we have used RFE (that eliminates some variables up to a determined number). By iteration, we have discovered that n_features_to_select=7 had the best outcome, measured by R2 and MSE.
+
+Although the OLS model had a slightly better outcome than the Linear Regression one, both models didn't have many hyperparameters to be tested.
+
+The only model that actually was improved by iterating hyperparameters was Random Forest Regressor. The RandomizedSearchCV was used to test the combination between many hyperparameters available.
+
+It worth saying that the outcome was improved by changing the proportion of data used for training and for testing.
+We had to decrease significantly the amount of records used to test the model, that is explained by the amount of data given at the database (the first thing we have explored).
+Problably the results would be even better if we had a larger dataset to work with.
+
+A final table was created to compare the results between all selected models.
