@@ -82,3 +82,7 @@ Problably the results would be even better if we had a larger dataset to work wi
 A final table was created to compare the results between all selected models.
 
 We will use Linear Regression to formulate our final model, because the results were better than the other models and it's easier to work with than OLS.
+
+----CREATING FINAL MODEL----
+
+At this time, we have copied the best model to a different file and we have used Pickle to save our model in a diferent file, where anyone could download and import in a different code, predicting the disease progression with an already trained model.
