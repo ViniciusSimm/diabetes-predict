@@ -56,3 +56,4 @@ Now we were able to use DummyRegressor, from Scikit, to evaluate how good our mo
 But we had to keep trying new models and, after finding one that pleased us enought, start working with parameters to improve it even more.
 
 The next model was Decision Tree Regressor, but it's performance was even worse than the Dummy.
+The Random Forest Regressor had a better outcome than the Decision Tree Regressor once it tested many trees and chose the one with the best outcome.

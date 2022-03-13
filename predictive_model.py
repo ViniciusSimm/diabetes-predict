@@ -1,6 +1,7 @@
 import numpy as np
 from sklearn import datasets
 import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn import metrics
@@ -59,7 +60,7 @@ print(model_OLS.summary())
 
 print("\nSVC model:")
 
-model_SVC = SVC()
+model_SVC = SVC(max_iter=1000)
 model_SVC = train_model(model_SVC,X_train,Y_train)
 R2_SVC,MSE_SVC = score_model(model_SVC,X_test,Y_test)
 
@@ -90,3 +91,9 @@ print("\nDecision Tree Regressor:")
 model_tree = DecisionTreeRegressor(random_state=100)
 model_tree = train_model(model_tree,X_train,Y_train)
 R2_tree,MSE_tree = score_model(model_tree,X_test,Y_test)
+
+print("\nRandom Forest Regressor:")
+
+model_forest = RandomForestRegressor(random_state=100)
+model_forest = train_model(model_forest,X_train,Y_train)
+R2_forest,MSE_forest = score_model(model_forest,X_test,Y_test)
