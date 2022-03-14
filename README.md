@@ -1,7 +1,7 @@
 # diabetes-predict
 
 
-----DATA EXPLORER----
+## DATA EXPLORER
 
 
 For this project, we used the diabetes dataset from sklearn.
@@ -36,7 +36,7 @@ We also did some exploring with scipy normaltest. Adopting an alpha of 0.05, we 
 So, after the data exploring, we were ready to start modeling.
 
 
-----MODELING----
+## MODELING
 
 
 The first model was Linear Regression.
@@ -63,7 +63,7 @@ The next model was Decision Tree Regressor, but it's performance was even worse 
 The Random Forest Regressor had a better outcome than the Decision Tree Regressor once it tested many trees and chose the one with the best outcome.
 
 
-----IMPROVING BEST MODELS----
+## IMPROVING BEST MODELS
 
 
 With six distinct models, we chose the top three to improve by changing its hyperparameters.
@@ -83,6 +83,6 @@ A final table was created to compare the results between all selected models.
 
 We will use Linear Regression to formulate our final model, because the results were better than the other models and it's easier to work with than OLS.
 
-----CREATING FINAL MODEL----
+## CREATING FINAL MODEL
 
 At this time, we have copied the best model to a different file and we have used Pickle to save our model in a diferent file, where anyone could download and import in a different code, predicting the disease progression with an already trained model.
